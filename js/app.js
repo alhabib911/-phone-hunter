@@ -17,7 +17,20 @@ const showProductsDetails = (products) => {
  for(const product of products){
     const parents = document.getElementById("all-products")
     const div = document.createElement('div')
-    div.innerHTML = ``
+    div.innerHTML = `<div>
+    <div class=" card p-24 bg-zinc-100	mb-5 rounded-lg border border-green-900">
+        <div class="product-pic flex justify-center ">
+            <img src="${product.image}" alt="">
+            </div>  
+                <div class="my-5">
+                <h4 class="text-center">Name: ${product.phone_name}</h4>
+                <h6 class="text-center">Brand Name: ${product.brand}</h6>
+                <div class="details_btn ml-7 mt-3">
+                <button onclick="details('${product.slug}')" class="bg-green-800 text-white rounded px-5 py-2">Details</button>
+                </div>
+            </div>
+            </div>
+</div>`
 
     parents.appendChild(div)
 
@@ -38,13 +51,14 @@ const savedDetails = (info) => {
 
     // console.log(info);
 
-    document.getElementById("details-container").innerHTML = `<div class="left-area ml-12 flex justify-center	">
+    document.getElementById("details-container").innerHTML = 
+    `<div class="left-area ml-12 flex justify-center">
     <img class="" src="${info.image}" alt="">
     </div>
 <div class="right-area ml-5">
     <div class="details">
         <div class="mt-8">
-        <h2 class="font-semibold text-emerald-900	 text-xl">Product details of ${info.name}</h2>
+        <h2 class="font-semibold text-emerald-900 text-xl">Product details of ${info.name}</h2>
         <h4>Name: ${info.name}</h4>
         <h4>Brand: ${info.brand}</h4>
         <h4>Chipset:${info.mainFeatures.chipSet}</h4>
